@@ -5,6 +5,7 @@ package com.cos.photogramstart.domain.user;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Builder // User <- SignupDto 넣기 위해 사용
@@ -19,13 +20,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 번호 증가 전략이 DB를 따라감 (mysql-AutoIncrement, oracle-sequence )
     private int id;
 
-    @Column(unique = true)
+    @Column(unique = true, length = 20)
     private String username;
+    @Column(nullable = false)
     private String password;
-
+    @Column(nullable = false)
     private String name;
     private String website; // 웹 사이트
     private String bio; // 자기소개
+    @Column(nullable = false)
     private String email;
     private String phone;
     private String gender;
