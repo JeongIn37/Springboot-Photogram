@@ -26,7 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()  // 그 외의 요청은 접근 허용
                 .and()
                 .formLogin()    // 인증이 필요한 페이지로 접근이 오면 formLogin을 할건데
-                .loginPage("/auth/signin")  // forLogin이 수행되는 페이지가 /auth/signin 이다
+                .loginPage("/auth/signin")  // forLogin이 수행되는 페이지가 /auth/signin 이다 (GET)
+                .loginProcessingUrl("/auth/signin") // 로그인 요청 (POST) -> 스프링 시큐리티가 로그인 프로세스 진행
                 .defaultSuccessUrl("/");    // 로그인이 정상처리되면 / 로 이동한다
 
         // csrf 토큰 비활성화

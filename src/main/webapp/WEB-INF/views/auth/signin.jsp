@@ -24,7 +24,7 @@
                         <h1><img src="/images/logo.jpg" alt=""></h1>
                         
                         <!--로그인 인풋-->
-                        <form class="login__input" >
+                        <form class="login__input" action="/auth/signin" method="post"> <!-- 원리상 GET이 맞긴 하지만 주소창에 pw 노출되므로 POST 방식으로 -->
                             <input type="text" name="username" placeholder="유저네임" required="required" />
                             <input type="password" name="password" placeholder="비밀번호" required="required" />
                             <button>로그인</button>
